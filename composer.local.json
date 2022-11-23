@@ -4,6 +4,20 @@
   "description": "Additions for you own install of municipo.",
   "require": {
     "helsingborg-stad/wpmu-accordion-expand-plus": ">=1.0.0",
-    "helsingborg-stad/algolia-index-js-searchpage-addon": "dev-3.0/develop"
+    "helsingborg-stad/algolia-index-js-searchpage-addon": "dev-3.0/develop",
+    "helsingborg-stad/multi-network-urls": "^1.0.1",
+    "wpackagist-plugin/wp-multi-network": "^2.5.2",
+    "helsingborg-stad/acf-ux-collapse": ">=1.0.0",
+    "helsingborg-stad/attachment-revisions": ">=1.0.0",
+    "helsingborg-stad/wp-search-statistics": ">=0.1.0",
+    "helsingborg-stad/custom-short-links": ">=1.0.0",
+    "mcguffin/acf-customizer": "0.2.13",
+    "wpackagist-plugin/user-switching" : ">=1.5.1",
+    "wpackagist-plugin/username-changer": "3.1.3",
+    "helsingborg-stad/wp-api-get-sites": "1.0.2",
+    "wpackagist-plugin/wp-editor-widget": "^0.6.0",
+    "wpackagist-plugin/litespeed-cache": "^5.3.0",
+    "wpackagist-plugin/network-plugin-auditor": "^1.10.0",
+    "helsingborg-stad/subdirectory-to-subdomain-redirect": "^1.0.0"
   }
 }

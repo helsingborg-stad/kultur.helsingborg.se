@@ -3,7 +3,7 @@
 !/wp-content/object-cache.php
 /wp-content/mu-plugins/*
 !/wp-content/mu-plugins
-!/wp-content/mu-plugins/loader.php
+!/wp-content/mu-plugins/must_use_loader.php
 /vendor/
 /wp/
 .DS_Store

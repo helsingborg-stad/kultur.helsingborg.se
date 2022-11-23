@@ -82,7 +82,9 @@
     "wpackagist-plugin/redis-cache": "2.0.15",
     "wpackagist-plugin/varnish-http-purge": "^4.1.1",
     "wpackagist-plugin/wp-nested-pages": "3.1.4",
-    "helsingborg-stad/modularity-products": "dev-master"
+    "helsingborg-stad/modularity-products": "dev-master",
+    "humanmade/s3-uploads": "^3.0.4",
+    "helsingborg-stad/s3-uploads-custom-endpoint": "^1.0.0"
   },
   "extra": {
       "path": "/",

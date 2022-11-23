@@ -14,13 +14,42 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: helsingborg-stad/municipio-deploy/3.0@master
-      with:
-        deploy-host: ${{ secrets.DEPLOY_REMOTE_HOST_STAGE }}
-        deploy-host-path: ${{ secrets.DEPLOY_REMOTE_PATH_STAGE  }}
-        deploy-host-backup-path: ${{ secrets.DEPLOY_REMOTE_BACKUP_DIR_STAGE }}
-        deploy-host-user: ${{ secrets.DEPLOY_REMOTE_USER_STAGE }}
-        deploy-host-user-key: ${{ secrets.DEPLOY_KEY_STAGE }}
-        deploy-host-web-server-user: ${{ secrets.WEB_SERVER_USER_STAGE }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        acf-url: ${{ secrets.ACF_URL }}
+
+  # TODO: Setup secrets for new env
+  #   steps:
+  #   - uses: actions/checkout@v2
+
+  #   - uses: helsingborg-stad/municipio-deploy/3.0@master
+  #     with:
+  #       deploy-host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD }}
+  #       deploy-host-path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD  }}
+  #       deploy-host-backup-path: ${{ secrets.DEPLOY_REMOTE_BACKUP_DIR_PROD }}
+  #       deploy-host-user: ${{ secrets.DEPLOY_REMOTE_USER_PROD }}
+  #       deploy-host-user-key: ${{ secrets.DEPLOY_KEY_PROD }}
+  #       deploy-host-web-server-user: ${{ secrets.WEB_SERVER_USER_PROD }}
+  #       github-token: ${{ secrets.GITHUB_TOKEN }}
+  #       acf-url: ${{ secrets.ACF_URL }}
+
+  # paid-plugin: # Extra
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #     with:
+  #       repository: ${{ secrets.PAID_PLUGINS_REPO }}
+  #       token: ${{ secrets.HBG_GH_TOKEN }}
+
+  #   - name: unzip and remove
+  #     run: unzip * && rm *.zip
+  #     shell: bash
+
+  #   - name: The rsync deployment to www-data user.
+  #     uses: burnett01/rsync-deployments@4.1
+  #     with:
+  #       switches: -avzrog --chown=${{ secrets.WEB_SERVER_USER_PROD }}:${{ secrets.WEB_SERVER_USER_PROD }}
+  #       path: .
+  #       remote_path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD }}/wp-content/plugins
+  #       remote_host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD }}
+  #       remote_user: ${{ secrets.DEPLOY_REMOTE_USER_PROD }}
+  #       remote_key: ${{ secrets.DEPLOY_KEY_PROD }}
+  #       remote_port: 22
