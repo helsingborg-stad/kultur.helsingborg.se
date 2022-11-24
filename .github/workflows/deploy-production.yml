@@ -40,7 +40,7 @@ jobs:
       shell: bash
 
     - name: The rsync deployment to www-data user.
-      uses: burnett01/rsync-deployments@4.1
+      uses: burnett01/rsync-deployments@5.2.1
       with:
         switches: -avzrog --chown=${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}:${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}
         path: .
