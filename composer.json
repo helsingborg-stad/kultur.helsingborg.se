@@ -79,7 +79,7 @@
     "wpackagist-plugin/fakerpress": "0.5.2",
     "wpackagist-plugin/nginx-helper": "^2.2",
     "wpackagist-plugin/redirection": "^4.3.1",
-    "wpackagist-plugin/redis-cache": "2.0.15",
+    "wpackagist-plugin/redis-cache": "^2.2.2",
     "wpackagist-plugin/varnish-http-purge": "^4.1.1",
     "wpackagist-plugin/wp-nested-pages": "3.1.4",
     "helsingborg-stad/modularity-products": "dev-master",
