@@ -22,6 +22,7 @@ jobs:
         user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
         key: ${{ secrets.DEPLOY_KEY_PROD }}
         port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
+        args: -tt
 
     # - uses: helsingborg-stad/municipio-deploy/3.0@add-port
     #   with:
