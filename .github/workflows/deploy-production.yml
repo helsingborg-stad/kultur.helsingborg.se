@@ -33,7 +33,7 @@ jobs:
         remote_port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
 
     - name: Compress backup files.
-      uses: fifsky/ssh-action@0.0.6
+      uses: fifsky/ssh-action@v0.0.6
       with:
         command: la -al
         host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
