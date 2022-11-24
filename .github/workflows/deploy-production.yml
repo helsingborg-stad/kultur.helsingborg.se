@@ -21,7 +21,7 @@ jobs:
         deploy-host-path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD_NEW_HOST }}
         deploy-host-backup-path: ${{ secrets.DEPLOY_REMOTE_BACKUP_DIR_PROD_NEW_HOST }}
         deploy-host-user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
-        deploy-host-user-key: ${{ secrets.DEPLOY_KEY_PROD_NEW_HOST }}
+        deploy-host-user-key: ${{ secrets.DEPLOY_KEY_PROD }}
         deploy-host-web-server-user: ${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
         acf-url: ${{ secrets.ACF_URL }}
@@ -47,5 +47,5 @@ jobs:
         remote_path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD_NEW_HOST }}/wp-content/plugins
         remote_host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
         remote_user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
-        remote_key: ${{ secrets.DEPLOY_KEY_PROD_NEW_HOST }}
+        remote_key: ${{ secrets.DEPLOY_KEY_PROD }}
         remote_port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
