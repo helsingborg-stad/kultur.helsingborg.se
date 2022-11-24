@@ -33,14 +33,13 @@ jobs:
         remote_port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
 
     - name: Compress backup files.
-      uses: fifsky/ssh-action@v0.0.6
+      uses: appleboy/ssh-action@master
       with:
-        command: la -al
+        script: la -al
         host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
-        user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
+        username: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
         key: ${{ secrets.DEPLOY_KEY_PROD }}
         port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
-        args: -tt
 
     # - uses: helsingborg-stad/municipio-deploy/3.0@add-port
     #   with:
