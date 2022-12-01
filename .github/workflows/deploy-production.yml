@@ -12,40 +12,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Run GetEnv command
+        uses: DovnarAlexander/github-actions-jelastic@master
+        with:
+          jelastic_url: ${{ secrets.JELASTIC_PLATFORM_URL }}
+          jelastic_username: ${{ secrets.JELASTIC_USER }}
+          jelastic_password: ${{ secrets.JELASTIC_TOKEN }}
+          task: environment/control/getenvs
 
-    - uses: helsingborg-stad/municipio-deploy/3.0@add-port
-      with:
-        deploy-host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
-        deploy-port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
-        deploy-host-path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD_NEW_HOST }}
-        deploy-host-backup-path: ${{ secrets.DEPLOY_REMOTE_BACKUP_DIR_PROD_NEW_HOST }}
-        deploy-host-user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
-        deploy-host-user-key: ${{ secrets.DEPLOY_KEY_PROD_NEW_HOST }}
-        deploy-host-web-server-user: ${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        acf-url: ${{ secrets.ACF_URL }}
+    # - uses: actions/checkout@v3
 
-  paid-plugin: # Extra
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        repository: ${{ secrets.PAID_PLUGINS_REPO }}
-        token: ${{ secrets.HBG_GH_TOKEN }}
+  #   - uses: helsingborg-stad/municipio-deploy/3.0@add-port
+  #     with:
+  #       deploy-host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
+  #       deploy-port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
+  #       deploy-host-path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD_NEW_HOST }}
+  #       deploy-host-backup-path: ${{ secrets.DEPLOY_REMOTE_BACKUP_DIR_PROD_NEW_HOST }}
+  #       deploy-host-user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
+  #       deploy-host-user-key: ${{ secrets.DEPLOY_KEY_PROD_NEW_HOST }}
+  #       deploy-host-web-server-user: ${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}
+  #       github-token: ${{ secrets.GITHUB_TOKEN }}
+  #       acf-url: ${{ secrets.ACF_URL }}
 
-    - name: unzip and remove
-      run: unzip \*.zip && rm *.zip
-      shell: bash
+  # paid-plugin: # Extra
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #     with:
+  #       repository: ${{ secrets.PAID_PLUGINS_REPO }}
+  #       token: ${{ secrets.HBG_GH_TOKEN }}
 
-    - name: The rsync deployment to www-data user.
-      uses: burnett01/rsync-deployments@4.1
-      with:
-        switches: -avzrog --chown=${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}:${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}
-        path: .
-        remote_path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD_NEW_HOST }}/wp-content/plugins
-        remote_host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
-        remote_user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
-        remote_key: ${{ secrets.DEPLOY_KEY_PROD_NEW_HOST }}
-        remote_port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
+  #   - name: unzip and remove
+  #     run: unzip \*.zip && rm *.zip
+  #     shell: bash
+
+  #   - name: The rsync deployment to www-data user.
+  #     uses: burnett01/rsync-deployments@4.1
+  #     with:
+  #       switches: -avzrog --chown=${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}:${{ secrets.WEB_SERVER_USER_PROD_NEW_HOST }}
+  #       path: .
+  #       remote_path: ${{ secrets.DEPLOY_REMOTE_PATH_PROD_NEW_HOST }}/wp-content/plugins
+  #       remote_host: ${{ secrets.DEPLOY_REMOTE_HOST_PROD_NEW_HOST }}
+  #       remote_user: ${{ secrets.DEPLOY_REMOTE_USER_PROD_NEW_HOST }}
+  #       remote_key: ${{ secrets.DEPLOY_KEY_PROD_NEW_HOST }}
+  #       remote_port: ${{ secrets.DEPLOY_REMOTE_PORT_PROD_NEW_HOST }}
