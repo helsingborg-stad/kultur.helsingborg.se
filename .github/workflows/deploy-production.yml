@@ -13,12 +13,16 @@ jobs:
 
     steps:
       - name: Run GetEnv command
-        uses: DovnarAlexander/github-actions-jelastic@master
+        uses: yol-1982/github-actions-jelastic@master
+        id: jelastic
         with:
           jelastic_url: ${{ secrets.JELASTIC_PLATFORM_URL }}
           jelastic_username: ${{ secrets.JELASTIC_USER }}
           jelastic_password: ${{ secrets.JELASTIC_TOKEN }}
           task: environment/control/getenvs
+
+      - run: echo "${{ steps.jelastic.outputs.output }}"
+
 
     # - uses: actions/checkout@v3
 
