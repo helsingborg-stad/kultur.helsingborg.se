@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Run GetEnv command
-        uses: yol-1982/github-actions-jelastic@master
+        uses: yo-l1982/github-actions-jelastic
         id: jelastic
         with:
           jelastic_url: ${{ secrets.JELASTIC_PLATFORM_URL }}
