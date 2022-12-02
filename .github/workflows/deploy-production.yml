@@ -21,7 +21,7 @@ jobs:
           jelastic_password: ${{ secrets.JELASTIC_TOKEN }}
           task: environment/control/getenvs
 
-      - run: echo "${{ fromJson(steps.jelastic.outputs.output).response.result) }}"
+      - run: echo "${{ fromJson(steps.jelastic.outputs.output).response.result }}"
 
 
     # - uses: actions/checkout@v3
